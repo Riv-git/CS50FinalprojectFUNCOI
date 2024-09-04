@@ -1,0 +1,296 @@
+﻿    @page
+    @model Fundacionproj.Pages.SearchDonationsModel
+    @{
+    }
+    <style>
+    /* Most of the css structure and the html "class" tags where obtained through GPT *4 */
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .form-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .form-group {
+        margin: 10px;
+        flex-basis: 48%;
+        position: relative;
+    }
+
+    .btn, .btn-secondary {
+        background-color: #80AEBE; 
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .btn-secondary {
+        background-color: #c84869;
+    }
+
+    .btn:hover {
+        background-color: #80AEBE; 
+    }
+
+    .btn-secondary:hover {
+        background-color: #a83857; 
+    }
+
+    .btn-search {
+        background-color: #343a40; 
+        color: white;
+    }
+
+    .form-group div.options {
+        display: none;
+        position: absolute;
+        background: white;
+        width: 100%;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    #beneficiaryGroupOptions > div,
+    #CategoryOptions > div {
+        margin-bottom: 15px;
+    }
+
+    #filterMenu {
+        padding: 20px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        background-color: #f8f9fa; 
+    }
+
+    .donation-card {
+        background-color: white;
+        color: #343a40; 
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .donation-card2 {
+        background-color: #80AEBE; 
+        color: white; 
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .donation-card-body {
+        padding: 20px;
+    }
+
+        .donation-card-body .card-text {
+            color: #f8f9fa; 
+            font-weight: 300;
+        }
+
+            .donation-card-body .card-text strong {
+                color: white; 
+            }
+
+    .donation-card iframe {
+        border-radius: 10px 10px 0 0;
+        border: none;
+    }
+
+ 
+    h2 {
+        color: #80AEBE; 
+    }
+
+    a {
+        color: #343a40; 
+    
+    </style>
+
+
+
+    <h2>Selecciona una donacion</h2>
+    <a> Busca desde las diversas donaciones que tenemos sobre cual deseas apoyarnos, de manera similar puedes seleccionar el boton de filtro para buscar una donacion con criterios mas cerca con lo que desees apoyar incluyendo impacto, urgencia, categoria de donacion y a cuales personas se ayudara en cada una de ellas</a>
+    <div class="form-container">
+        <div class="left-column">
+            <form method="post" id="simpleSearchForm">
+                <button type="submit" class="btn btn-secondary">Buscar sin filtros</button>
+            </form>
+        </div>
+        <div class="right-column">
+            <button type="button" class="btn btn-filtros" id="toggleFilters">Filtros</button>
+        <div id="filterMenu" style="display: none; background-color: #343a40;">
+                <form method="post">
+                    <div class="form-container">
+                        <div class="left-column">
+                            <div class="form-group">
+                                <button type="button" class="btn" onclick="toggleVisibility('UbicacionOptions')">Ubicacion de la donacion</button>
+                                <div id="UbicacionOptions" style="display: none;">
+                                <input type="text" class="form-control" name="Location" placeholder="Ingrese la ubicación">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn"  onclick="toggleVisibility('UrgencyOptions')">Nivel de urgencia</button>
+                            <div id="UrgencyOptions" class="text-white" style="display: none;">
+                                    <label><input type="checkbox" name="UrgencyLevel" value="">Todos los niveles</label>
+                                    <label><input type="checkbox" name="UrgencyLevel" value="Inmediato"> Inmediato</label>
+                                    <label><input type="checkbox" name="UrgencyLevel" value="Alto"> Alto</label>
+                                    <label><input type="checkbox" name="UrgencyLevel" value="Medio"> Medio</label>
+                                    <label><input type="checkbox" name="UrgencyLevel" value="Bajo"> Bajo</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn" onclick="toggleVisibility('CategoryOptions')">Tipos de categoria</button>
+                            <div id="CategoryOptions" class="text-white" style="display: none;">
+                                    <div>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="">Todos los tipos</label>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Transporte a Clinica"> Transporte a Clínica</label>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Alimentacion"> Alimentación</label>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Ropa"> Ropa</label>
+                                    </div>
+                                    <div>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Panales"> Pañales</label>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Manutension">Manutension</label>
+                                        <label> <input type="checkbox" name="TypeOfAssistance" value="Medicamentos">Medicamentos</label>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Asesoria Juridica">Asesoria Juridica</label>
+                                        <label><input type="checkbox" name="TypeOfAssistance" value="Otros">Otros</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn" onclick="toggleVisibility('beneficiaryGroupOptions')">Tipo de persona</button>
+                            <div id="beneficiaryGroupOptions" class="text-white" style="display: none;">
+                                    <div>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="">Todos los grupos</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Niño"> Niño</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Niña"> Niña</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Madre"> Madre</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Padre"> Padre</label>
+                                    </div>
+                                    <div>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Familia"> Toda la Familia</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Poblacion"> Poblacion</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Adulto"> Adulto</label>
+                                        <label><input type="checkbox" name="BeneficiaryGroup" value="Otro"> Otro</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-column">
+            
+                            <div class="form-group">
+                                <button type="button" class="btn-secondary"  onclick="toggleVisibility('ImpactOptions')">Impacto (Cantidad de personas que se van a ayudar)</button>
+                                <div id="ImpactOptions" style="display: none;">
+                                <label>Impacto (Número de personas a que esto ayuda):</label>
+                                <input type="number" class="form-control" name="Impact" placeholder="Ingrese el impacto estimado">
+                                </div>
+                            </div>
+                            <button type="button" class="btn-secondary" onclick="toggleVisibility('dateRangeOptions')">Fecha</button>
+                            <div id="dateRangeOptions" style="display: none;">
+                                <div class="form-group">
+                                    <label>Buscar donaciones desde:</label>
+                                    <input type="date" class="form-control" name="StartDate">
+                                </div>
+                                <div class="form-group">
+                                    <label>Hasta la fecha:</label>
+                                    <input type="date" class="form-control" name="EndDate">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="button" class="btn-secondary" onclick="toggleVisibility('assistanceStatusOptions')">Estado de la donacion (finalizado o incompleto)</button>
+                                <div id="assistanceStatusOptions" style="display: none;">
+                                <label>Estado de la Donación:</label>
+                                    <label><input type="checkbox" name="AssistanceStatus" value="">Todos los estados</label>
+                                    <label><input type="checkbox" name="AssistanceStatus" value="Sin cumplir"> Sin cumplir</label>
+                                    <label><input type="checkbox" name="AssistanceStatus" value="Parcialmente Cumplido"> Parcialmente Cumplido</label>
+                                    <label><input type="checkbox" name="AssistanceStatus" value="Ya no es Necesario"> Ya no es Necesario</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn-secondary" onclick="toggleVisibility('GoalOptions')">Estado de la donacion (finalizado o incompleto)</button>
+                                <div id="GoalOptions" style="display: none;">
+                                <label>Meta para cumplir el objetivo (Pesos COP):</label>
+                                <input type="number" class="form-control" name="Goal" placeholder="Ingrese la meta en pesos">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-container">
+                        <div class="left-column">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('toggleFilters').onclick = function () {
+            var filterMenu = document.getElementById('filterMenu');
+            if (filterMenu.style.display === "none") {
+                filterMenu.style.display = "block";
+            } else {
+                filterMenu.style.display = "none";
+            }
+        }
+        function toggleVisibility(divId) {
+            var x = document.getElementById(divId);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+
+    @if (Model.Results.Any())
+    {
+        <h3>Resultados de la Búsqueda</h3>
+        <div class="row">
+            @foreach (var donation in Model.Results)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card donation-card">
+                    <iframe src="@donation.IframeLink" frameborder="0" style="width: 100%; height: 450px;"></iframe>
+                    </div>
+                    <div class="card donation-card2">
+                        <div class="card-body donation-card-body">
+                            <p class="card-text"><strong>Donde se hará la donación: </strong> @donation.Location</p>
+                            <p class="card-text"><strong>Nivel de Urgencia: </strong> @donation.UrgencyLevel</p>
+                            <p class="card-text"><strong>Categoría de la donación: </strong> @donation.TypeOfAssistance</p>
+                            <p class="card-text"><strong>Para quién será esta donación: </strong> @donation.BeneficiaryGroup</p>
+                            <p class="card-text"><strong>Cuántas personas podrías ayudar: </strong> @donation.Impact personas</p>
+                            <p class="card-text"><strong>Cuánto tiempo hace falta para que termine esta donación: </strong> @donation.TimeNeededBefore.ToString("dd/MM/yyyy")</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    else if (Model.Results != null)
+    {
+        <p>No se encontraron donaciones que coincidan con los criterios de búsqueda.</p>
+    }
+
+

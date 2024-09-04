@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Fundacionproj.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="">
+            Usuario
+        </a>
+        <ul class="dropdown-menu">
+                <li><a class="dropdown-item" asp-area="" asp-page="/User">Actualizar Donaciones</a></li>
+            <li><hr class="dropdown-divider"/></li>
+            <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+        </ul>                
+
+    </li>
+}
+else
+{
+    
+}
+</ul>
