@@ -1,0 +1,243 @@
+﻿@page
+@model Fundacionproj.Pages.ConocenosModel
+@{
+}
+<style>
+    /* Most of the css structure and the html "class tags" where obtained through GPT *4 must of the images where obtained trhough flux */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+        background-color: white;
+    }
+
+    .bg-pink {
+        background-color: #8b2a50;
+    }
+
+    .text-pink {
+        color: #8b2a50;
+    }
+
+    .bg-black {
+        background-color: #343a40;
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+     
+    .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+     
+    .no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .row.no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .col-md-6 img {
+        width: 100%;
+        height: auto;
+        border: none;
+        box-shadow: none;
+    }
+
+    .col-md-6 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    h1, h2 {
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .testimonial17-container12,
+    .testimonial17-container14,
+    .testimonial17-container16 {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: var(--dl-space-space-unit);
+        position: relative;
+    }
+
+    .testimonial17-image1,
+    .testimonial17-image2,
+    .testimonial17-image3 {
+        width: 60px !important;  
+        height: 60px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+        margin-top: -40px !important;  
+        position: relative !important;
+        z-index: 1 !important;  
+    }
+
+    .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-top: -15px;  
+        position: relative;
+        z-index: 0;  
+    }
+
+    .card-text.text-muted {
+        font-size: 0.75rem;
+        color: #6c757d;
+        margin-top: -10px;  
+        position: relative;
+        z-index: 0;  
+    }
+
+    .card-text.small {
+        margin-top: 10px;  
+        position: relative;
+        z-index: 0;  
+    }
+
+    .card {
+        border: none;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: flex-start;
+    }
+
+
+
+
+    
+</style>
+<div class="container">
+
+    <div class="row">
+        <div class="col-12 text-center bg-pink text-white py-5">
+            <h1 class="text-uppercase">QUIÉNES SOMOS</h1>
+        </div>
+    </div>
+
+    <div class="row no-gutters align-items-center">
+        <div class="col-md-6">
+            <img src="~/images/Little_blonde_cute_kid_with_doctor.webp" alt="Blonde Girl with Doctor" class="img-fluid">
+        </div>
+        <div class="col-md-6 px-5 py-5">
+            <h2 class="text-pink">FUNCOI:</h2>
+            <p>Somos una organización sin fines de lucro registrada en la Cámara de Comercio de Bogotá (CCB), dedicada a apoyar a los niños con cáncer y sus familias, que no cuentan con los recursos necesarios para desplazarse desde su pueblo a la ciudad para recibir tratamientos de quimioterapia. Ofrecemos apoyo en transporte, alimentación, asesoría jurídica, juguetes y cuentos para los niños hospitalizados, además de crear bibliotecas infantiles en los servicios de quimioterapia.</p>
+        </div>
+    </div>
+
+    <div class="row no-gutters align-items-center bg-black text-white">
+        <div class="col-md-6 px-5 py-5">
+            <h2 class="text-pink">VISIÓN</h2>
+            <p>Para el 2028, la Fundación de Apoyo para el Cáncer Oral e Infantil será reconocida como la entidad líder en apoyo social para niños con cáncer, y como referente en educación y prevención del cáncer oral a través de un enfoque académico y educativo.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="~/images/Kid_taking_off_mask.webp" alt="Kid Taking Off Mask" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="row no-gutters align-items-center">
+        <div class="col-md-6">
+            <img src="~/images/patocorazon.jpg" alt="Kid Taking Off Mask" class="img-fluid">
+        </div>
+        <div class="col-md-6 px-5 py-5">
+            <h2 class="text-pink">MISIÓN</h2>
+            <p>Nuestra misión es apoyar a los niños y sus familias en la lucha contra el cáncer oral e infantil, proporcionando servicios y programas que mejoren su bienestar integral, con el objetivo de elevar su calidad de vida mediante asistencia social, médica, odontológica y psicológica.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center bg-pink text-white py-5">
+            <h1 class="text-uppercase">NECESITAMOS TU AYUDA HOY </h1>
+            <a class="btn btn-light" href="/Donacion">Donaciones</a>
+        </div>
+        
+    </div>
+    <div class="row no-gutters align-items-center bg-black text-white">
+        <div class="text-center">
+            <img src="~/images/shake_hands_balck_and_white_song.webp" alt="Shaking hands" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2>FUNDADORES</h2>
+        <p>Conozca a los fundadores de nuestra empresa</p>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 p-3">
+                <div class="d-flex flex-row align-items-center testimonial17-container12">
+                    <img src="~/images/santiago.jpg" class="testimonial17-image1 me-3" alt="Foto de Santiago Silva Betancourt">
+                    <div>
+                        <h5 class="card-title mb-1">SANTIAGO SILVA BETANCOURT</h5>
+                        <p class="card-text text-muted mb-2">Economista</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="card-text small">
+                        Economista de la Universidad Externado de Colombia con especialización en Banca y Finanzas, trabajo trece años para firmas de consultorías (Arthur Andersen como Gerente de Colombia y Deloitte & Touche como responsable de consultoría en Ecuador, vicepresidente del Grupo Financiero Popular durante tres años.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 p-3">
+                <div class="d-flex flex-row align-items-center testimonial17-container14">
+                    <img src="~/images/neira.jpg" class="testimonial17-image2 me-3" alt="Foto de Fernanda Neira Muñoz">
+                    <div>
+                        <h5 class="card-title mb-1">FERNANDA NEIRA MUÑOZ</h5>
+                        <p class="card-text text-muted mb-2">Odontóloga</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="card-text small">
+                        Odontóloga de la Universidad el Bosque de Colombia con especialización en Patología Oral y Medios Diagnósticos, y en Gerencia en calidad en salud, especialista en Tele odontología de la Universidad de Sao Pablo en Brasil, con experiencia de 10 años en cargos gerenciales en diferentes clínicas privadas.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 p-3">
+                <div class="d-flex flex-row align-items-center testimonial17-container16">
+                    <img src="~/images/uribe.jpg" class="testimonial17-image3 me-3" alt="Foto de Ivan Alberto Uribe">
+                    <div>
+                        <h5 class="card-title mb-1">IVAN ALBERTO URIBE</h5>
+                        <p class="card-text text-muted mb-2">Administrador de empresas</p>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <p class="card-text small">
+                        Administrador de empresas de la Universidad Javeriana con especialización en Finanzas en la Universidad Javeriana, Alta gerencia en la Universidad de los Andes y Marketing Digital en Columbia University N.Y. Con más de 20 años de experiencia en cargos comerciales y Gerenciales, liderando compañías Nacionales y Multinacionales. Miembro de juntas directivas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

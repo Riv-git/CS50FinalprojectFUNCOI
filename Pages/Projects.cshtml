@@ -1,0 +1,149 @@
+﻿@page
+@model Fundacionproj.Pages.ProjectsModel
+@{
+}
+<style>
+    /* Most of the css structure and the html "class tags" where obtained through GPT *4 */
+    #proyectos {
+        background-color: #EFF5F7; 
+        padding: 10px 0;
+        width: 95%;
+        max-width: 95%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 90%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .card img {
+        width: 150px;
+        height: auto;
+        margin-right: 20px;
+        border-radius: 5px;
+        flex-shrink: 0;
+    }
+
+    .card h3 {
+        color: #c84869;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        color: #606060;
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    
+    .card:hover {
+        transform: translateY(-5px); 
+            background-color: #EFF5F7; 
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    }
+
+    
+    @@media (max-width: 768px) {
+        .card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .card img {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+</style>
+
+<section id="proyectos">
+    <div class="container">
+        <div class="card">
+            <img src="~/images/Classroom_defined.jpg" alt="Imagen Proyecto 1">
+            <div>
+                <h3>Colegios Contra el Cáncer Oral e Infantil</h3>
+                <p>
+                    Organizamos campañas solidarias dirigidas a Colegios en Colombia. Cuyo objetivo es recaudar fondos para apoyar nuestros diferentes proyectos y crear conciencia de la importancia de la ayuda humanitaria hacia los niños afectados por esta enfermedad
+                    Entregaremos en esta campaña folletos educativos sobre la enfermedad y un diploma que acredita a cada niño como participante de la jornada.
+                    Cada colegio recibe un distintivo de nuestra fundación que lo hace Colegio colaborador en la lucha contra el cáncer oral e infantil
+
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="~/images/Taxi_to_hospital.webp" alt="Imagen Proyecto 2">
+            <div>
+                <h3>Transporte</h3>
+                <p>
+                    Muchos de los niños con cáncer, sus familias no tienen los medios económicos para llevarlos de sus pueblos a Bogotá , donde recibirán su tratamiento de quimioterapia, parte de estos niños se mueren en sus casas sin poder acceder a su tratamiento que podría salvar sus vidas
+                    La Fundación da apoyo económico para este trasporte
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="~/images/Lunchmeal.webp" alt="Imagen Proyecto 3">
+            <div>
+                <h3>Alimentación</h3>
+                <p>
+                    Cuando los niños y su acompañante están en Bogotá, no tienen los medios económicos para tener las 3 comidas diarias para los dos, la mayoría de los casos solo cuentan con dinero para una comida al día, La fundación brinda parte o toda esta alimentación, en restaurantes cercanos al hospital o clínica donde reciben el tratamiento.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="~/images/Scales_law_image.webp" alt="Imagen Proyecto 4">
+            <div>
+                <h3>Asesoría Jurídica</h3>
+                <p>
+                    En ocasiones el sistema de salud del país, no autoriza tratamientos o exámenes vitales a nuestros niños con cáncer, para lo cual contamos con la ayuda de abogados para interponer tutelas o derechos de petición y agilizar estos servicios importantes para lograr mejorar la salud de los niños
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="~/images/Stack_of_books_in_wood_form.jpg" alt="Imagen Proyecto 5">
+            <div>
+                <h3>Bibliotecas Infantiles</h3>
+                <p>Establecemos bibliotecas en servicios de oncología, donde los niños pueden llevarse cuentos infantiles donados después de sus tratamientos.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="~/images/Doctor_in_a_classroom.jpg" alt="Imagen Proyecto 6">
+            <div>
+                <h3>Charlas de Prevención y Detección de Cáncer</h3>
+                <p>
+                    Realizamos charlas a nivel empresarial , en áreas de bienestar médico, con el fin de crear conciencia de los signos tempranos del cáncer , de maneras de disminuir su presentación y conocer los riesgos para evitarlos
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="~/images/Doctor_looking_at_kids_mouth.jpg" alt="Imagen Proyecto 7">
+            <div>
+                <h3>Capacitaciones a Profesionales de la Salud</h3>
+                <p>Capacitamos a profesionales para detectar las primeras manifestaciones del cáncer en la boca, con el objetivo de mejorar la detección temprana.</p>
+            </div>
+        </div>
+    </div>
+</section>

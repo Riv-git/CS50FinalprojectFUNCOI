@@ -1,0 +1,503 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    /* Most of the css structure and the html "class tags" where obtained through GPT *4 */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+        background-color: white;
+    }
+
+    #hero-section {
+        position: relative;
+        background-color: black;
+        margin: 0;  
+        padding-bottom: 0;  
+    }
+
+    .hero-content {
+        position: relative;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin: 0;  
+    }
+
+        .hero-content .background-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .hero-content .text-overlay {
+            position: absolute;
+            bottom: 100px;  
+            left: 500px;  
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);  
+            color: whitesmoke;
+            margin: 0;  
+        }
+
+            .hero-content .text-overlay h1 {
+                font-size: 60px;  
+                margin: 0;
+                text-align: left;  
+            }
+
+        .hero-content .image-column {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+            .hero-content .image-column img {
+                max-width: 100%;
+                height: auto;
+                object-fit: cover;
+                object-position: center;
+            }
+
+    #info-section {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;  
+        margin: 0;  
+    }
+
+    .info-column {
+        flex: 1;
+        padding: 30px;
+        text-align: center;
+        color: white;
+        margin: 0;  
+    }
+
+        .info-column h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .info-column p {
+            font-size: 18px;
+        }
+
+    .carousel-item {
+        height: 100vh;  
+        min-height: 400px;
+        background: no-repeat center center scroll;
+        background-size: cover;
+    }
+
+    .carousel-caption h1 {
+        font-size: 60px;  
+        background: rgba(0, 0, 0, 0.5);  
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+     
+    .carousel-indicators {
+        top: 10px;
+        bottom: auto;
+        right: 0;
+        left: 0;
+        width: auto;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+        .carousel-indicators li {
+            background-color: white;  
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            opacity: 0.8;
+        }
+
+        .carousel-indicators .active {
+            background-color: #80AEBE;  
+        }
+
+     
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: white;  
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;  
+    }
+
+    .contact-me-section {
+        background-color: #f2f2f2;
+        padding: 40px 20px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+        .contact-me-section h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-me-section p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+    .contact-details p {
+        margin: 10px 0;
+    }
+
+    .contact-details a {
+        color: #80AEBE;
+        text-decoration: none;
+    }
+
+
+
+    #beneficiaryGroupOptions > div {
+        margin-bottom: 15px;  
+    }
+
+    #CategoryOptions > div {
+        margin-bottom: 15px;  
+    }
+
+    #filterMenu {
+        padding: 20px;  
+        border: 1px solid #ccc;  
+        width: 100%;  
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);  
+    }
+
+     
+    .donation-card {
+        background-color: white;  
+        color: #80AEBE;  
+        border-radius: 10px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;  
+        overflow: hidden;  
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    }
+
+    .donation-card2 {
+        background-color: #80AEBE;  
+        color: #80AEBE;  
+         
+        overflow: hidden;  
+    }
+
+     
+    .donation-card-body {
+        padding: 20px;  
+    }
+
+         
+        .donation-card-body .card-text {
+            color: whitesmoke;  
+            font-weight: 300;  
+        }
+
+             
+            .donation-card-body .card-text strong {
+                color: white;  
+            }
+
+     
+    .donation-card iframe {
+        border-radius: 10px 10px 0 0;  
+        border: none;  
+    }
+
+    .highlighted-text {
+        font-size: 32px;  
+        font-weight: bold;  
+        color: white;  
+        padding: 10px 20px;  
+        border-radius: 5px;  
+        background: linear-gradient(90deg, #8b2a50, #343a40, #80AEBE);  
+        text-align: center;  
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+    }
+
+    .about-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;  
+        padding: 40px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+        margin-top: 100px;
+    }
+
+    .about-content {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .section-title {
+        font-size: 36px;
+        color: white;
+        background-color: #8b2a50;  
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .section-text {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #343a40;  
+        background-color: #8b2a50;  
+        padding: 20px;
+        border-radius: 5px;
+        color: white;  
+    }
+
+    .about-image {
+        flex: 1;
+        text-align: center;
+    }
+
+        .about-image img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    .row-card-background{
+        background-color: linear-gradient(90deg, #c84869, #343a40, #80AEBE);
+    }
+
+     
+    .card {
+        opacity: 0;  
+        transform: translateY(50px);  
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;  
+        will-change: opacity, transform;  
+    }
+
+        .card.visible {
+            opacity: 1;  
+            transform: translateY(0px);  
+        }
+
+     
+    .about-content, .about-image {
+        opacity: 0;  
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;  
+        will-change: opacity, transform;  
+    }
+
+    .about-content {
+        transform: translateX(-50px);  
+    }
+
+    .about-image {
+        transform: translateX(50px);  
+    }
+
+    .visible-about {
+        opacity: 1;  
+        transform: translateX(0px);  
+    }
+
+
+</style>
+
+<div class="container">
+    <section id="hero-section">
+        <div class="hero-content">
+            <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#hero-carousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#hero-carousel" data-bs-slide-to="2"></li>
+                    
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/images/little-girl.webp" class="d-block w-100" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>FUNCOI: FUNDACION PARA EL APOYO DE CANCER ORAL E INFANTIL</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/images/blonde_girl_with_doctor.webp" class="d-block w-100" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>FUNCOI: FUNDACION PARA EL APOYO DE CANCER ORAL E INFANTIL</h1>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/images/shake_hands_balck_and_white_song.webp" class="d-block w-100" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>FUNCOI: FUNDACION PARA EL APOYO DE CANCER ORAL E INFANTIL</h1>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="info-section">
+        <div class="info-column" style="background-color:#8b2a50;">
+            <h2>Quienes Somos</h2>
+            <p>Quienes somos, Misión, Visión, junta directiva</p>
+        </div>
+        <div class="info-column" style="background-color:#343a40;">
+            <h2>Proyectos</h2>
+            <p>Apoyo, Capacitaciones, Jornadas de detección</p>
+        </div>
+        <div class="info-column" style="background-color:#80AEBE;">
+            <h2>Colaboranos</h2>
+            <p>Empresas amigas, Colegios, Voluntarios, Donaciones</p>
+        </div>
+    </section>
+
+    
+
+
+
+@if (Model.Results.Any())
+{
+    <h3 class="highlighted-text">Apoya a diferentes causas para marcar una diferencia</h3>
+    <div class="row">
+        @foreach (var donation in Model.Results)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card donation-card">
+                    <iframe src="@donation.IframeLink" frameborder="0" style="width: 100%; height: 450px;"></iframe>
+                </div>
+                <div class="card donation-card2">
+                    <div class="card-body donation-card-body">
+                        <p class="card-text"><strong>Donde se hará la donación: </strong> @donation.Location</p>
+                        <p class="card-text"><strong>Nivel de Urgencia: </strong> @donation.UrgencyLevel</p>
+                        <p class="card-text"><strong>Categoría de la donación: </strong> @donation.TypeOfAssistance</p>
+                        <p class="card-text"><strong>Para quién será esta donación: </strong> @donation.BeneficiaryGroup</p>
+                        <p class="card-text"><strong>Cuántas personas podrías ayudar: </strong> @donation.Impact personas</p>
+                        <p class="card-text"><strong>Cuánto tiempo hace falta para que termine esta donación: </strong> @donation.TimeNeededBefore.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">CONOCENOS</h2>
+            <p class="section-text">
+                La fundación es una organización sin fines de lucro registrada en la Cámara de Comercio de Bogotá, CCB, creada con la finalidad de apoyar a los niños con cáncer y sus familias, que no tengan los medios para realizar los desplazamientos de su pueblo a la ciudad a recibir el tratamiento de quimioterapia. Brindamos apoyo para transporte, alimentación, asesorías jurídicas, juguetes y cuentos para niños hospitalizados, y la creación de bibliotecas infantiles en los servicios de quimioterapia.
+            </p>
+        </div>
+        <div class="about-image">
+            
+            <img src="~/images/Kid_taking_off_mask.webp" alt="Quiénes Somos" />
+        </div>
+    </div>
+}
+
+else if (Model.Results != null)
+{
+    <div class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">CONOCENOS</h2>
+            <p class="section-text">
+                La fundación es una organización sin fines de lucro registrada en la Cámara de Comercio de Bogotá, CCB, creada con la finalidad de apoyar a los niños con cáncer y sus familias, que no tengan los medios para realizar los desplazamientos de su pueblo a la ciudad a recibir el tratamiento de quimioterapia. Brindamos apoyo para transporte, alimentación, asesorías jurídicas, juguetes y cuentos para niños hospitalizados, y la creación de bibliotecas infantiles en los servicios de quimioterapia.
+            </p>
+        </div>
+        <div class="about-image">
+            
+            <img src="~/images/Kid_taking_off_mask.webp" alt="Quiénes Somos" />
+        </div>
+    </div>
+}
+    <div style="position: relative; width: 100%; height: 400px;">
+        <iframe title="Google Maps"
+                aria-label="Google Maps"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                scrolling="no"
+                allowfullscreen=""
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3976.1268198272086!2d-74.048166!3d4.675545!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNCDCsDQwJzMyLjAiTiA3NMKwMDInNTMuNCJX!5e0!3m2!1sen!2s!4v1692096408502!5m2!1sen!2s">
+        </iframe>
+        <!-- This is done to simulate as if one knows the location of the Donation sit without needing to use the google API ;) -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90px; height: 90px; background-color: transparent; border-radius: 50%; border: 5px solid red; pointer-events: none;"></div>
+        <div style="position: absolute; top: calc(50% + 50px); left: 50%; transform: translate(-50%, 0); width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 30px solid red; pointer-events: none;"></div>
+    </div>
+    <div class="contact-me-section" style="background-color: #f2f2f2; padding: 20px; text-align: center;">
+        <h2>Contacta Con Nosotros</h2>
+        <p>Si tienes alguna pregunta o deseas apoyar nuestra causa, no dudes en contactarnos.</p>
+        <div class="contact-details">
+            <p><strong>Email:</strong> <a href="mailto:fundacioncanceroralinfantil@gmail.com">fundacioncanceroralinfantil@gmail.com</a></p>
+            <p><strong>Teléfono:</strong> 3002009249</p>
+            <p><strong>Dirección:</strong> Bogotá, Colombia</p>
+        </div>
+    </div>
+    
+
+
+
+</div>
+
+<script>
+    // Animations for the webpage use GPT *4
+    document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1 
+        });
+
+        
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible-about');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        
+        document.querySelectorAll('.about-content, .about-image').forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>

@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fundacionproj</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Fundacionproj.styles.css" asp-append-version="true" />
+    <style>
+        /* Most of the css structure and the html "class tags" where obtained through GPT *4 */
+        .navbar {
+            background-color: #8b2a50;  
+           
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+            .navbar-brand:hover {
+                color: #d09db1;  
+            }
+
+        .navbar-nav .nav-link {
+            color: #f5f5f5;  
+            transition: color 0.3s ease-in-out;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #d09db1;  
+            }
+
+        .dropdown-item {
+            color: white;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+            .dropdown-item:hover {
+                background-color: #d09db1;  
+            }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);  
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        .dropdown-menu {
+            background-color: #8b2a50;  
+            border: none;  
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+        }
+
+        .dropdown-item {
+            color: white;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            padding: 10px 20px;  
+        }
+
+            .dropdown-item:hover {
+                background-color: #d09db1;  
+                color: #000;  
+            }
+
+        .dropdown-divider {
+            border-color: rgba(255, 255, 255, 0.2);  
+        }
+
+        .navbar .dropdown-toggle::after {
+            display: none;  
+        }
+
+        .navbar .dropdown-toggle:after {
+            content: '\25BC';  
+            font-size: 0.6rem;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+            color: #f5f5f5;  
+        }
+
+        .dropdown-menu-end {
+            right: 0;  
+            left: auto;  
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark-pink border-bottom box-shadow mb-3">
+            <div class="container" style="background-color: rgba(0, 0, 0, 0.0);">
+                <a class="navbar-brand" asp-area="" asp-page="/Index" style="background-color: rgba(0, 0, 0, 0.0);">FUNCOI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1" style="background-color: rgba(0, 0, 0, 0.0);">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Conocenos">Quienes Somos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Projects">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-page="/Support">Ayudanos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Donaciones
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-light" asp-area="" asp-page="/Donation">Donar a una causa</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-light" asp-area="" asp-page="/SearchDonations">Busca una causa que te motive</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <div class="d-inline-flex align-items-center">
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Fundacionproj - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

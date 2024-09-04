@@ -1,0 +1,151 @@
+﻿@page
+@model Fundacionproj.Pages.Donations.CreateModel
+@{
+}
+
+<br>
+<h2>Nueva Donacion</h2>
+
+@if (Model.errorMessage.Length > 0) {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+<form method="POST">
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nombre de la Donación</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Name" value="@Model.donationInfo.Name">
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Enlace Iframe</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="IframeLink" value="@Model.donationInfo.IframeLink">
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Ubicación</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Location" value="@Model.donationInfo.Location">
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nivel de Urgencia</label>
+        <div class="col-sm-6">
+            <select class="form-control" name="UrgencyLevel">
+                <option value="@Model.donationInfo.UrgencyLevel">Seleccione un nivel</option>
+                <option value="Inmediato">Inmediato</option>
+                <option value="Alto">Alto</option>
+                <option value="Medio">Medio</option>
+                <option value="Bajo">Bajo</option>
+            </select>
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Tipo de Asistencia</label>
+        <div class="col-sm-6">
+            <select class="form-control" name="TypeOfAssistance">
+                <option value="@Model.donationInfo.TypeOfAssistance">Seleccione un tipo</option>
+                <option value="Transporte a Clinica">Transporte a Clinica</option>
+                <option value="Alimentacion">Alimentacion</option>
+                <option value="Ropa">Ropa</option>
+                <option value="Panales">Pañales</option>
+                <option value="Manutension">Manutension</option>
+                <option value="Medicamentos">Medicamentos</option>
+                <option value="Asesoria Juridica">Asesoria Juridica</option>
+                <option value="Otros">Otros</option>
+
+            </select>
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Beneficiario Principal</label>
+        <div class="col-sm-6">
+            <select class="form-control" name="BeneficiaryGroup">
+                <option value="@Model.donationInfo.BeneficiaryGroup">Seleccione un grupo</option>
+                <option value="Niño">Niño</option>
+                <option value="Niña">Niña</option>
+                <option value="Madre">Madre</option>
+                <option value="Padre">Padre</option>
+                <option value="Familia">Toda la Familia</option>
+                <option value="Poblacion">Poblacion</option>
+                <option value="Adulto">Adulto</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Impacto (Número de personas a que esto ayuda)</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" name="Impact" value="@Model.donationInfo.Impact">
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Se necesita la donación para antes de:</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" name="BeforeToDonate" value="@Model.donationInfo.TimeNeededBefore.ToString("yyyy-MM-dd")">
+        </div>
+    </div>
+
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Estado de la Donacion</label>
+        <div class="col-sm-6">
+            <select class="form-control" name="AssistanceStatus">
+                <option value="@Model.donationInfo.AssistanceStatus">Seleccione un estado</option>
+                <option value="Sin cumplir">Sin cumplir</option>
+                <option value="Parcialmente Cumplido">Parcialmente Cumplido</option>
+                <option value="Ya no es Necesario">Ya no es Necesario</option>
+            </select>
+        </div>
+    </div>
+
+    
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Meta para cumplir el objetivo (Dolares)</label>
+        <div class="col-sm-6">
+            <input type="number" class="form-control" name="Goal" value="@Model.donationInfo.Goal">
+        </div>
+    </div>
+
+    @if (Model.sucessMessage.Length > 0) {
+    <div class="row mb-3">
+        <div class="col-sm-9">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.sucessMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        </div>
+    </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary" name="Goal">Enviar</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+        </div>
+    </div>
+    
+
+</form>
